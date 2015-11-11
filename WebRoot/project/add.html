@@ -1,0 +1,41 @@
+<#include "/common/_layout.html"/> <@layout>
+<div class="right-con">
+	<div class="con-nav">
+		<strong>当前位置：</strong> <a href="#">项目中心</a> > <a href="#">添加项目</a>
+	</div>
+	<div class="con-box yuding">
+		<form action="/project/addProject" method="post" enctype="multipart/form-data">
+			<table cellpadding="0" cellspacing="1" border="0">
+				<tr>
+					<td width="100">项目名称：</td>
+					<td class="txt-left"><input type="text" placeholder="请输入项目名称" name="name"></td>
+				</tr>
+				<tr>
+					<td>项目介绍：</td>
+					<td class="txt-left">
+						<div class="create-word-box" name="introduce_text">此处为富文本编辑框，供管理员编辑产品</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="100">预计利润：</td>
+					<td class="txt-left"><input type="text" placeholder="请输入项目名称" name="predict_profit"></td>
+				</tr>
+				<tr>
+					<td width="100">实际利润：</td>
+					<td class="txt-left"><input type="text" placeholder="请输入项目名称" name="actual_profit"></td>
+				</tr>
+				<tr>
+					<td>项目图片：</td>
+					<td style="text-align: left;"><input type="file" name="introduce_pic><span
+						class="pri-color" ">(注意：图片宽度250px，高度118px)</span></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit">确定</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+</@layout>

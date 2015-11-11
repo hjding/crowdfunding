@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/hjd/Desktop/server/Projects/zhongchou/doc/buildJar/jodd-3.6.6/jodd-3.6.6.jar" sourcepath="doc/buildJar/jodd-3.6.6/jodd-3.6.6-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hjd/Desktop/server/Projects/zhongchou/doc/buildJar/cos-26Dec2008/cos.jar" sourcepath="doc/buildJar/cos-26Dec2008/src"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>
