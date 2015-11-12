@@ -15,6 +15,7 @@ import com.zhongchou.controller.IndexController;
 import com.zhongchou.controller.ProjectController;
 import com.zhongchou.controller.UserController;
 import com.zhongchou.model.Project;
+import com.zhongchou.model.ProjectOrder;
 import com.zhongchou.model.User;
 
 /**
@@ -55,6 +56,7 @@ public class RunConfig extends JFinalConfig {
 		me.add(arp);
 		arp.addMapping("user", "user_id",User.class); // 映射user 表到 User模型
 		arp.addMapping("project", "project_id", Project.class);
+		arp.addMapping("project_order", "id", ProjectOrder.class);
 	}
 
 	/**

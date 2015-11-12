@@ -1,6 +1,7 @@
 package com.zhongchou.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.jfinal.plugin.activerecord.Model;
@@ -18,9 +19,16 @@ public class Project extends Model<Project> {
 	 * @param pageSize
 	 * @return
 	 */
-	public Page<Project> paginate(int pageNumber, int pageSize) {
-		return paginate(pageNumber, pageSize, "select *",
+	public List<Project> paginate(int pageNumber, int pageSize) {
+		
+		Page<Project> page = paginate(pageNumber, pageSize, "select *",
 				"from project order by project_id asc");
+		if (page.getList() != null) {
+			return page.getList();
+		}
+		else{
+			return null;
+		}
 	}
 
 	public boolean add(String name, String introduce_text,

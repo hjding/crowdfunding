@@ -29,6 +29,14 @@ public class Constant {
 	public final static int COOKIE_NOT_FOUND = -7;
 
 	public final static String PROJECT_SAVE_ERROR = "项目信息创建出错";
+	public final static String PROJECT_DELETE_ERROR = "项目删除出错";
+	public final static String PROJECT_QUERY_ERROR = "项目查找出错";
 	public final static String PROJECT_UPDATE_ERROR = "项目信息更新出错";
+	public final static String PROJECT_INFO_EDIT_ERROR = "项目信息填写出错";
+	public final static String PROJECT_ID_EDIT_ERROR = "项目id填写出错";
+	public final static String PROJECT_LIST_ERROR = "项目列表查询出错";
+	public final static String PROJECT_LIST_PARA_ERROR = "项目列表参数pageNumber或pageSize出错";
 
+	public final static String PROJECT_ORDER_PARA_ERROR = "项目预订参数pageNumber或pageSize出错";
+	public final static String PROJECT_ORDER_LIST_ERROR = "项目预订列表查询出错";
 }
