@@ -3,6 +3,8 @@ package com.zhongchou.controller;
 import java.util.Map;
 
 import com.zhongchou.model.Project;
+import com.zhongchou.model.User;
+import com.zhongchou.run.Constant;
 import com.zhongchou.run.UpFileRenamePolicy;
 import com.zhongchou.tools.Cookies;
 
@@ -13,45 +15,51 @@ public class ProjectController extends BaseController {
 	}
 
 	public void add() {
-		render("/project/add.html");
-	}
-
-	public void addProject() {
-		String cookie = getCookie(Cookies.cookie_domain_name);
-		if (cookie != null && cookie != "") {
-			int user_id = Cookies.checkCookie(cookie);
-			print("\nuser_id = " + user_id);
-			if (user_id > 0) {
-				// cookie有效
-				getFile("introduce_pic");
-				String saveDirectory = UpFileRenamePolicy.relative_directory;
+		String cookie = getCookie(Constant.COOKIE_USER);
+		int user_id_currentUser = Cookies.authenticationCookie(cookie);
+		if (user_id_currentUser > 0) {
+			User user = User.dao.findByIdLoadColumns(user_id_currentUser,
+					"type");
+			String type_currentUser = user.get("type");
+			if (type_currentUser.equals("砖石会员")) {
 				String name = getPara("name");
 				String introduce_text = getPara("introduce_text");
+				String saveDirectory = getPara("saveDirectory");
 				String predict_profit = getPara("predict_profit");
+				if ((name != null && name != "")
+						&& (introduce_text != null && introduce_text != "")
+						&& (saveDirectory != null && saveDirectory != "")
+						&& (predict_profit != null && predict_profit != "")) {
 
-				if (Project.me.add(name, introduce_text, saveDirectory,
-						predict_profit)) {
-					setAttr("status", "SUCCESS");
+					if (Project.dao.add(name, introduce_text, saveDirectory,
+							predict_profit)) {
+						// add success
+						setAttr("status", Constant.STATUS_SUCCESS);
+					} else {
+						// add failed
+						setAttr("status", Constant.STATUS_FAILED);
+						setAttr("reason", Constant.USER_UPDATE_ERROR);
+					}
 				} else {
-					setAttr("status", "FAILED");
+					// user info edit error
+					setAttr("status", Constant.STATUS_FAILED);
+					setAttr("reason", Constant.USER_INFO_EDIT_ERROR);
 				}
-
-				renderJson();
 			} else {
-				// cookie无效
-				render("/user/login.html");
-
+				setAttr("status", Constant.STATUS_FAILED);
+				setAttr("reason", Constant.USER_PERMISSION_NOT_ENOUGH);
 			}
 		} else {
-			// cookie不存在
-			render("/user/login.html");
+			setAttr("status", Constant.STATUS_FAILED);
+			setAttr("reason", String.valueOf(user_id_currentUser));
 		}
+		renderJson();
 	}
 
 	public void edit() {
-		// render("/project/edit.html");
 		String project_id = getPara("project_id");
-		Map map = Project.getProjectInfo(Integer.parseInt(project_id));
+		Map<String, String> map = Project.dao.query(Integer
+				.parseInt(project_id));
 		if (map != null) {
 			setAttr("status", "SUCCESS");
 			setAttr("data", map);
@@ -61,23 +69,6 @@ public class ProjectController extends BaseController {
 		}
 
 		renderJson();
-	}
-
-	public void editProject() {
-		String project_id = getPara("project_id");
-		String name = getPara("name");
-		String introduce_text = getPara("introduce_text");
-		String introduce_pic = getPara("introduce_pic");
-		String predict_profit = getPara("predict_profit");
-		String actual_profit = getPara("actual_profit");
-
-		Project project = Project.getProjectByProject_id(Integer
-				.parseInt(project_id));
-
-		project.set("name", name).set("introduce_pic", introduce_pic)
-				.set("introduce_text", introduce_text)
-				.set("predict_profit", predict_profit)
-				.set("actual_profit", actual_profit);
 	}
 
 	public void order() {

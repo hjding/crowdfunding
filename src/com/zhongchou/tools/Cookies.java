@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import jodd.util.Base64;
 
 import com.zhongchou.model.User;
+import com.zhongchou.run.Constant;
 
 /**
  * 
@@ -20,22 +21,13 @@ import com.zhongchou.model.User;
  */
 public class Cookies {
 
-	// 保存cookie时的cookieName
-	public final static String cookie_domain_name = "zhongchou.com";
-
-	// 加密cookie时的网站自定码
-	private final static String web_key = "zhongchou";
-
-	// 设置cookie有效期是两个星期，根据需要自定义
-	public final static long cookie_max_age = 1000 * 60 * 60 * 24 * 7;
-
 	public static String getCookieValue(int user_id, String password) {
 
 		String userId = Integer.toString(user_id);
 		String validTime = Long.toString(System.currentTimeMillis()
-				+ cookie_max_age);
+				+ Constant.COOKIE_MAX_AGE);
 		String cookieValueWithMd5 = stringMD5(userId + password + validTime
-				+ web_key);
+				+ Constant.COOKIE_WEB_KEY);
 
 		return Base64.encodeToString(userId + ":" + validTime + ":"
 				+ cookieValueWithMd5);
@@ -57,11 +49,11 @@ public class Cookies {
 			if (validTime > System.currentTimeMillis()) {
 				String userId = cookieValueArr[0];
 				int user_id = Integer.parseInt(userId);
-				User user = User.me.findById(user_id);
+				User user = User.dao.findById(user_id);
 				if (user != null) {
 					String password = user.getStr("password");
 					String cookieValueWithMd5Again = stringMD5(userId
-							+ password + validTime + web_key);
+							+ password + validTime + Constant.COOKIE_WEB_KEY);
 					String cookieValueWithMd5 = cookieValueArr[2];
 
 					System.out.print("\nuser = " + user);
@@ -81,19 +73,44 @@ public class Cookies {
 						return user_id;
 					} else {
 						// cookie验证错误
-						return COOKIE_AUTHENTICATION_ERROR;
+						return Constant.COOKIE_AUTHENTICATION_ERROR;
 					}
 				} else {
 					// 找不到用户
-					return COOKIE_NOT_FOUND_USER;
+					return Constant.COOKIE_NOT_FOUND_USER;
 				}
 			} else {
 				// cookie过期
-				return COOKIE_NOT_VALID;
+				return Constant.COOKIE_OVER_DUE;
 			}
 		} else {
 			// cookie Base64解码错误
-			return COOKIE_BASE64_DECODE_ERROR;
+			return Constant.COOKIE_BASE64_DECODE_ERROR;
+		}
+	}
+
+	/**
+	 * @param cookie
+	 * @return user_id or kind of cookie error
+	 */
+	public static int authenticationCookie(String cookie) {
+
+		if (cookie != null && cookie != "") {
+			int user_id = Cookies.checkCookie(cookie);
+			System.out
+					.println("Cookies.authenticationCookie(String cookie): user_id = "
+							+ user_id);
+			if (user_id > 0) {
+				// cookie valid
+				return user_id;
+
+			} else {
+				// cookie not valid
+				return Constant.COOKIE_NOT_VALID;
+			}
+		} else {
+			// cookie not found
+			return Constant.COOKIE_NOT_FOUND;
 		}
 	}
 
@@ -139,8 +156,4 @@ public class Cookies {
 		return new String(resultCharArray);
 	}
 
-	private final static int COOKIE_NOT_FOUND_USER = -2;
-	private final static int COOKIE_AUTHENTICATION_ERROR = -3;
-	private final static int COOKIE_NOT_VALID = -4;
-	private final static int COOKIE_BASE64_DECODE_ERROR = -5;
 }

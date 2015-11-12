@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import org.apache.log4j.Logger;
 
 import com.jfinal.core.Controller;
+import com.zhongchou.run.Constant;
 
 /**
  * 公共Controller
@@ -21,12 +22,12 @@ public abstract class BaseController extends Controller {
 	private static Logger log = Logger.getLogger(BaseController.class);
 
 	/**
-	 *	打印到控制台
+	 * 打印到控制台
 	 */
-	public void print(Object object){
+	public void print(Object object) {
 		System.out.println(object.toString());
 	}
-	
+
 	/**
 	 * 请求/WEB-INF/下的视图文件
 	 */
@@ -160,20 +161,23 @@ public abstract class BaseController extends Controller {
 		String orderMode = getPara("orderMode");
 		return orderMode;
 	}
-	
+
 	/**
-     *  java EE6.0设置安全cookie的方法
-     * @param name
-     * @param value
-     * @param maxAgeInSeconds
-     * @return
-     */
-    public Controller setCookieHttpOnly(String name, String value, int maxAgeInSeconds) {
-        Cookie cookie = new Cookie(name, value);
-        cookie.setMaxAge(maxAgeInSeconds);
-        cookie.setPath("/");
-        cookie.setHttpOnly(true);
-        setCookie(cookie);
-        return this;
-    }
+	 * java EE6.0设置安全cookie的方法
+	 * 
+	 * @param name
+	 * @param value
+	 * @param maxAgeInSeconds
+	 * @return
+	 */
+	public Controller setCookieHttpOnly(String name, String value,
+			int maxAgeInSeconds) {
+		Cookie cookie = new Cookie(name, value);
+		// cookie.setDomain(Constant.COOKIE_DOMAIN_NAME);
+		cookie.setMaxAge(maxAgeInSeconds);
+		cookie.setPath("/");
+		cookie.setHttpOnly(true);
+		setCookie(cookie);
+		return this;
+	}
 }

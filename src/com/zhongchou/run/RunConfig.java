@@ -53,8 +53,8 @@ public class RunConfig extends JFinalConfig {
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
-		arp.addMapping("user", User.class); // 映射user 表到 User模型
-		arp.addMapping("project", Project.class);
+		arp.addMapping("user", "user_id",User.class); // 映射user 表到 User模型
+		arp.addMapping("project", "project_id", Project.class);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class RunConfig extends JFinalConfig {
 	 * 配置处理器
 	 */
 	public void configHandler(Handlers me) {
-
+		
 	}
 
 	/**

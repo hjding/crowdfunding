@@ -9,7 +9,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/hjd/Desktop/server/Projects/zhongchou/doc/buildJar/jodd-3.6.6/jodd-3.6.6.jar" sourcepath="doc/buildJar/jodd-3.6.6/jodd-3.6.6-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hjd/Desktop/server/Projects/zhongchou/doc/buildJar/cos-26Dec2008/cos.jar" sourcepath="doc/buildJar/cos-26Dec2008/src"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

@@ -1,0 +1,166 @@
+
+2015-11-11 11:47:01
+[WARN]-[Thread: qtp770443395-22]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /jf/platform/login
+
+2015-11-11 15:16:03
+[ERROR]-[Thread: qtp145624615-22]-[com.jfinal.core.ActionHandler.handle()]: /user/authentication
+com.jfinal.render.RenderException: java.io.FileNotFoundException: Template "/user/authentication.html" not found.
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:130)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:93)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.FileNotFoundException: Template "/user/authentication.html" not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:742)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+
+2015-11-11 16:30:21
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1abb4956 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-11-11 16:30:21
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1abb4956 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 0
+	Active Tasks: 
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@573560a0
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@715ad51a
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@25cd81a
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1d6f942c
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@868e3cd
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1e43ac0b
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6cd415b2
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+
+
+
+2015-11-11 16:30:41
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1abb4956 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-11-11 16:30:41
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1abb4956 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 0
+	Active Tasks: 
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@8be12fc
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@76d062df
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6b0b5b69
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@369e8166
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@60416b8d
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@66fc2759
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@347b78e1
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@163d16b2
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@49d0b86
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@625f8cc7
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+
+
+
+2015-11-11 16:31:11
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1abb4956 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-11-11 16:31:11
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1abb4956 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 0
+	Active Tasks: 
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@5cca1618
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@5770b13f
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2784cbf2
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7f699122
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6bb79087
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6071c650
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4d92dfa7
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@659974ba
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@3dbe9372
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2ac24109
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:569)
+
+
+
+2015-11-11 16:31:21
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner.processReplacedThreads()]: Task null (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+
+2015-11-11 16:31:21
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner.processReplacedThreads()]: Task null (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+
+2015-11-11 16:31:21
+[WARN]-[Thread: Timer-15]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner.processReplacedThreads()]: Task null (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+
+2015-11-11 16:47:25
+[ERROR]-[Thread: qtp1663232002-20]-[com.jfinal.core.ActionHandler.handle()]: /user/loginWithCookie
+com.jfinal.render.RenderException: java.io.FileNotFoundException: Template "/user/loginWithCookie.html" not found.
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:130)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:93)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.FileNotFoundException: Template "/user/loginWithCookie.html" not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:742)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
