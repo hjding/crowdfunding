@@ -12,10 +12,6 @@ public class UserController extends BaseController {
 		login();
 	}
 
-	/**
-	 * login
-	 * 
-	 */
 	public void login() {
 		Integer user_id = getParaToInt("user_id");
 		String password = getPara("password");

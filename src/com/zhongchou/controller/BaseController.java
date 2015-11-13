@@ -9,13 +9,7 @@ import javax.servlet.http.Cookie;
 import org.apache.log4j.Logger;
 
 import com.jfinal.core.Controller;
-import com.zhongchou.run.Constant;
 
-/**
- * 公共Controller
- * 
- * @author hjd
- */
 public abstract class BaseController extends Controller {
 
 	@SuppressWarnings("unused")

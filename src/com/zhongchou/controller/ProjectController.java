@@ -249,7 +249,47 @@ public class ProjectController extends BaseController {
 	}
 
 	public void profitDistribution() {
-		setAttr("status", Constant.STATUS_SUCCESS);
+		String cookie = getCookie(Constant.COOKIE_USER);
+		int user_id_currentUser = Cookies.authenticationCookie(cookie);
+		if (user_id_currentUser > 0) {
+			User user = User.dao.findByIdLoadColumns(user_id_currentUser,
+					"type");
+			String type_currentUser = user.get("type");
+			if (type_currentUser.equals("砖石会员")) {
+
+				String project_id = getPara("project_id");
+				String pageNubmer = getPara("pageNumber");
+				String pageSize = getPara("pageSize");
+				if (project_id != null && project_id != ""
+						&& pageNubmer != null && pageNubmer != ""
+						&& pageSize != null && pageSize != "") {
+					List<ProjectOrder> projectOrders = ProjectOrder.dao
+							.paginate(Integer.parseInt(project_id),
+									Integer.parseInt(pageNubmer),
+									Integer.parseInt(pageSize));
+					if (projectOrders != null && projectOrders.size() > 0) {
+						Map<String, List<ProjectOrder>> map = new HashMap<>();
+						map.put("projectOrders", projectOrders);
+						setAttr("status", Constant.STATUS_SUCCESS);
+						setAttr("data", map);
+					} else {
+						setAttr("status", Constant.STATUS_FAILED);
+						setAttr("reason", Constant.PROJECT_ORDER_LIST_ERROR);
+					}
+				} else {
+					setAttr("status", Constant.STATUS_FAILED);
+					setAttr("reason", Constant.PROJECT_ORDER_PARA_ERROR);
+				}
+			} else {
+				// user permission not enough
+				setAttr("status", Constant.STATUS_FAILED);
+				setAttr("reason", Constant.USER_PERMISSION_NOT_ENOUGH);
+			}
+		} else {
+			// cookie error code
+			setAttr("status", Constant.STATUS_FAILED);
+			setAttr("reason", String.valueOf(user_id_currentUser));
+		}
 		renderJson();
 	}
 }

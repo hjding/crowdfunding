@@ -1,7 +1,6 @@
 package com.zhongchou.model;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.jfinal.plugin.activerecord.Model;
@@ -23,7 +22,7 @@ public class User extends Model<User> {
 	 */
 	public Page<User> paginate(int pageNumber, int pageSize) {
 		return paginate(pageNumber, pageSize, "select *",
-				"from user order by id asc");
+				"from user order by user_id asc");
 	}
 
 	/**
@@ -96,6 +95,7 @@ public class User extends Model<User> {
 	}
 
 	/**
+	 * query
 	 * 
 	 * @param user_id
 	 * @return
@@ -127,6 +127,26 @@ public class User extends Model<User> {
 		}
 	}
 
+	/**
+	 * update
+	 * 
+	 * @param user_id
+	 * @param name
+	 * @param password
+	 * @param payment
+	 * @param ID_number
+	 * @param handle_person
+	 * @param account_bank
+	 * @param bank_account
+	 * @param sex
+	 * @param type
+	 * @param address
+	 * @param birthday
+	 * @param telephone
+	 * @param referrer_number
+	 * @param add_time
+	 * @return
+	 */
 	public boolean update(int user_id, String name, String password,
 			String payment, String ID_number, String handle_person,
 			String account_bank, String bank_account, String sex, String type,
@@ -146,22 +166,4 @@ public class User extends Model<User> {
 			return false;
 		}
 	}
-
-	// /**
-	// * getUserInfo
-	// *
-	// * @param user_id
-	// * @return
-	// */
-	// public static Map getUserInfo(int user_id) {
-	// User user = me.findById(user_id);
-	//
-	// Map map = new HashMap();
-	// map.put("user_id", user.get("user_id"));
-	// map.put("name", user.get("name"));
-	// map.put("type", user.get("type"));
-	//
-	// return map;
-	// }
-
 }

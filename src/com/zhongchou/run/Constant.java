@@ -39,4 +39,16 @@ public class Constant {
 
 	public final static String PROJECT_ORDER_PARA_ERROR = "项目预订参数pageNumber或pageSize出错";
 	public final static String PROJECT_ORDER_LIST_ERROR = "项目预订列表查询出错";
+
+	public final static String USER_ID_IS_NULL = "user_id为空";
+	public final static String PROJECT_ID_IS_NULL = "project_id为空";
+	public final static String ORDER_DATE_IS_NULL = "order_date为null或空字符";
+	public final static String ORDER_CONTENT_IS_NULL = "order_content为null或空字符";
+	public final static String ORDER_TYPE_IS_NULL = "order_type为null或空字符";
+
+	public final static String ORDER_INSERT_FAILED = "项目预订增加失败";
+	public final static String ORDER_DELETE_FAILED = "项目预订删除失败";
+	public final static String ORDER_QUERY_FAILED = "项目预订查询失败";
+	public final static String ORDER_UPDATE_FAILED = "项目预订修改失败";
+	public final static String ORDER_LIST_FAILED = "项目预订列表查询失败";
 }
