@@ -1,6 +1,6 @@
-项目启动步骤
+﻿项目启动步骤
 
-1： 使用 blog.sql 中的 sql 语句创建数据库与数据库表
+1： 使用 /database/zhongchou.sql 中的 sql 语句创建数据库与数据库表
 
 2: 修改 WebRoot/WEB-INF/a_little_config.txt 文件，填入正确的数据库连接用户名、密码
 
