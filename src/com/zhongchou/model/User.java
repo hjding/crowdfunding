@@ -106,7 +106,7 @@ public class User extends Model<User> {
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("user_id", String.valueOf(user.get("user_id")));
 			map.put("password", String.valueOf(user.get("password")));
-			map.put("name", String.valueOf(user.get("name")));
+			map.put("user_name", String.valueOf(user.get("user_name")));
 			map.put("payment", String.valueOf(user.get("payment")));
 			map.put("ID_number", String.valueOf(user.get("ID_number")));
 			map.put("handle_person", String.valueOf(user.get("handle_person")));

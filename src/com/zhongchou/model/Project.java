@@ -70,6 +70,9 @@ public class Project extends Model<Project> {
 					String.valueOf(project.get("predict_profit")));
 			map.put("actual_profit",
 					String.valueOf(project.get("actual_profit")));
+			map.put("project_type",
+					String.valueOf(project.get("project_type")));
+
 
 			return map;
 		} else {
